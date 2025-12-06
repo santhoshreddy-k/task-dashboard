@@ -17,7 +17,7 @@ RUN mvn -B -e -DskipTests package
 
 # ------ Stage 2: runtime (slim) ------
 # Use a small JRE/JDK image. Change to a non-root runtime if you prefer.
-FROM eclipse-temurin:17-jdk-alpine
+FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 
 # Copy jar from builder stage. Use wildcard generally safe if only one jar.
