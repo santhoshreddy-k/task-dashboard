@@ -1,0 +1,22 @@
+# Maven build output
+target/
+!target/*.jar
+
+# Local IDE / OS files
+*.log
+.git
+.gitignore
+.vscode/
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Docker
+.dockerignore
+
+# Local environment and secrets
+.settings/
+*.keystore
+*.jks
+.env
