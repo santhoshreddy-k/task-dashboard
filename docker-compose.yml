@@ -1,36 +1,25 @@
-version: "3.9"
-
 services:
   postgres:
     image: postgres:15
-    container_name: td-postgres
-    restart: unless-stopped
     environment:
+      POSTGRES_DB: td_db
       POSTGRES_USER: tduser
       POSTGRES_PASSWORD: tdpass
-      POSTGRES_DB: td_db
     volumes:
-      - td_pgdata:/var/lib/postgresql/data   # persistent DB files
-    ports:
-      - "5432:5432"                           # optional: map to host for direct psql access
+      - postgres_data:/var/lib/postgresql/data
 
   app:
-    build: .                                 # expects Dockerfile in project root
+    build: .
     image: task-dashboard:local
-    container_name: td-app
-    restart: on-failure
     depends_on:
       - postgres
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/td_db
       SPRING_DATASOURCE_USERNAME: tduser
       SPRING_DATASOURCE_PASSWORD: tdpass
-      SPRING_JPA_HIBERNATE_DDL_AUTO: update   # use 'update' for dev. don't use create/drop in prod
     ports:
       - "8080:8080"
-    # optional: mount logs/other folders for debugging
-    # volumes:
-    #   - ./logs:/app/logs
-
+    # build/volumes/etc ...
 volumes:
-  td_pgdata:
+  postgres_data:
+
