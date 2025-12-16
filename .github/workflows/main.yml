@@ -31,6 +31,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: 12345.dkr.ecr.ap-south-1.amazonaws.com
+          ecr: true
 
       - name: Build with docker and push to ecr
         uses: docker/build-push-action@v5
