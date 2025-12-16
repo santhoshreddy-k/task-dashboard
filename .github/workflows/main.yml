@@ -32,7 +32,8 @@ jobs:
         with:
           registry: 12345.dkr.ecr.ap-south-1.amazonaws.com
           ecr: true
-          region: ap-south-1
+        env:
+          AWS_REGION: ap-south-1
 
       - name: Build with docker and push to ecr
         uses: docker/build-push-action@v5
