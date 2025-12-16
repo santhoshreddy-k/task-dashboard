@@ -1,0 +1,17 @@
+name: CI-CD Pipeline
+
+on:
+  push:
+    branches:
+      -main
+jobs:
+  hello-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello
+        run: echo "Hello,Github Actions!"
+
+      - name: Show runner Info
+        run: |
+         echo "Runner OS"
+         uname -a
