@@ -8,16 +8,14 @@ jobs:
   hello-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Print Hello
-        run: echo "Hello,Github Actions!"
+      - name: Code checkout
+        uses: actions/checkout@v4
 
       - name: Show runner Info
-        run: |
-         echo "Runner OS"
-         uname -a
-
-      - name: list files
-        run: ls -a
-
-      - name: Run a failing command (interntional)
-        run: exit 1
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distributions: 'termurin'
+          
+      - name: Build with maven
+        run: mvn clean package
