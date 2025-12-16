@@ -15,7 +15,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '17'
-          distributions: 'termurin'
+          distribution: 'termurin'
           
       - name: Build with maven
         run: mvn clean package
