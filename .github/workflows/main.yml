@@ -15,3 +15,9 @@ jobs:
         run: |
          echo "Runner OS"
          uname -a
+
+      - name: list files
+        run: ls -a
+
+      - name: Run a failing command (interntional)
+        run: exit 1
