@@ -37,4 +37,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: 535002872949.dkr.ecr.ap-south-1.amazonaws.com/task-dashboard/taskdashboard:latest
+          tags: 535002872949.dkr.ecr.ap-south-1.amazonaws.com/task-dashboard:latest
