@@ -7,20 +7,12 @@ pipeline {
     
     stages {
 
-        stage('Build') {
+        stage('Build with docker') {
             steps {
-               sh 'mvn clean package'
+               sh 'build -t task-dashboard:latest .'
             }
         }
 
-        stage('Test') {
-            steps {
-                sh '''
-                  echo "Running tests"
-                  date
-                '''
-            }
-        }
 
         stage('Deploy') {
             steps {
