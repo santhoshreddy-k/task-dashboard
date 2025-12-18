@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven-3'   // must match the name in Tools
+        maven 'maven-3'   // must match the name in Tools
     }
     
     stages {
