@@ -13,7 +13,7 @@ RUN mvn -B -e dependency:resolve dependency:go-offline
 
 # 2) copy source and build the fat jar
 COPY src ./src
-RUN mvn -B -e package
+RUN mvn -B -DskipTests package
 
 # ------ Stage 2: runtime (slim) ------
 # Use a small JRE/JDK image. Change to a non-root runtime if you prefer.
